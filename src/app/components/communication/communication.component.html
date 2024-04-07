@@ -1,0 +1,37 @@
+<h3>Service and Dependency Injection</h3>
+<br />
+
+<p>
+  Ways for communication between Components. <br />
+  1) Service. <br />
+  2) &#64;Input () + &#64;Output () with Eventemitter() => <br />
+  3) Routing. <br />
+  4) RXJS(observables, subject) <br />
+</p>
+<br />
+
+<hr />
+<blockquote>
+  Service: Singleton Class: only one object. <br />
+  1) Logic. <br />
+  2) API / Database Call. <br />
+  3) Communicate between two Components we need service. <br />
+</blockquote>
+<br />
+
+<p>
+  e.g. 1) Component wants to show users from database. <br />
+  2) Component cannot directly communicate with database. <br />
+  3) Now we have a API to fetch users. <br />
+  4) We will use service to fetch data from API. <br />
+  5) Once data is fetched in service then we inject service to component. <br />
+</p>
+<hr />
+<div>
+  <p>List of students coming from Communication Service file</p>
+  <ul>
+    @for (user of myStudents; track user) {
+    <li>{{ user }}</li>
+    } @empty { Empty list of users }
+  </ul>
+</div>

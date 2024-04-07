@@ -1,0 +1,104 @@
+<div class="mt-4 p-3">
+  <h3 class="mb-5">Directives</h3>
+  <p>
+    Directives are used to change the HTML or Class. <br />
+    Directives are classes that add additional behavior to elements in your
+    Angular applications. Use Angular's built-in directives to manage forms,
+    lists, styles, and what users see.
+  </p>
+  <br />
+  There are 3 types of directives. <br /><br />
+
+  <ul>
+    <li>
+      <h5>Structural Directives:</h5>
+      <p>
+        Directives that change the DOM layout by adding and removing DOM
+        elements.(Change HTML Property)
+      </p>
+    </li>
+    <ul>
+      <li>*ngIf</li>
+      <li>*ngFor</li>
+      <li>[ngSwitch]</li>
+    </ul>
+    <br />
+
+    <button class="btn btn-success" (click)="toggle()">
+      Attribute / Component Directive</button
+    ><br /><br />
+    <p>This button is operated using *ngIf.</p>
+
+    <hr />
+
+    <p *ngIf="show; else elsePart; then: thenPart"></p>
+
+    <ng-template #elsePart>
+      <ul>
+        <li>
+          <h5>Atrribute Directives:</h5>
+          <p>
+            Directives that change the appearance or behavior of an element,
+            component, or another directive.(Change CSS Property)
+          </p>
+        </li>
+        <ul>
+          <li>[ngClass]</li>
+          <li>[ngStyle]</li>
+          <br />
+        </ul>
+      </ul>
+    </ng-template>
+
+    <ng-template #thenPart>
+      <ul>
+        <li>
+          <h5>Component Directives:</h5>
+          <p>
+            Directives with a template. This type of directive is the most
+            common directive type.
+          </p>
+        </li>
+      </ul>
+    </ng-template>
+  </ul>
+
+  <hr />
+
+  <h5>Difference Between <em>*ngIf</em> & <em>[hidden]</em>:</h5>
+  <p>
+    <em>ngIf</em> deletes the element from DOM whereas <em>[hidden]</em> only
+    changes the display property from show to none.
+  </p>
+  <hr />
+
+  <h4>Also Enter your City</h4>
+  <p>
+    Try typing your city, if it appears down its listed, if not then nothing
+    happens.
+  </p>
+  <p>Example: Pune (Case Sensitive).</p>
+  <p>This section is done using [ngSwitchCase]</p>
+  <input type="text" [(ngModel)]="myCity" />
+
+  <ul [ngSwitch]="myCity">
+    <li *ngSwitchCase="'Pune'">Pune</li>
+    <li *ngSwitchCase="'Mumbai'">Mumbai</li>
+    <li *ngSwitchCase="'Nashik'">Nashik</li>
+    <li *ngSwitchCase="'Satara'">Satara</li>
+    <li *ngSwitchDefault="Goa">Goa</li>
+  </ul>
+  <p>Note: Goa is the dafault value.</p>
+  <br /><br />
+
+  <h4>If you read this section please add your name to list.</h4>
+  <br />
+  <input type="text" [(ngModel)]="abc" />
+  <button class="btn btn-outline-success m-3" (click)="add()">Add</button><br />
+  <p>The list generated below is done using *ngFor.</p>
+
+  <ul>
+    <li *ngFor="let n of array">{{ n }} has learned about Directives.</li>
+  </ul>
+  <br />
+</div>

@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col">
+    <button
+      [class]="
+        !getDisabledStatus()
+          ? 'btn btn-success mt-2'
+          : 'btn btn-outline-success mt-2'
+      "
+      (click)="toggle()"
+    >
+      Learning Mode On/Off
+    </button>
+  </div>
+  <div class="col">
+    <button
+      routerLink="angular17"
+      class="btn btn-outline-danger mt-2"
+      [disabled]="isDisabled"
+    >
+      Angular 17
+    </button>
+  </div>
+</div>
+<div class="row">
+  <router-outlet></router-outlet>
+</div>

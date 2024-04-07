@@ -1,0 +1,187 @@
+<div class="container-fluid mt-5">
+  <h3>Lifecycle hooks (May not be upto date)</h3>
+
+  <p class="mt-5">
+    A component instance has a lifecycle that starts when Angular instantiates
+    the component class and renders the component view along with its child
+    views. The lifecycle continues with change detection, as Angular checks to
+    see when data-bound properties change, and updates both the view and the
+    component instance as needed. The lifecycle ends when Angular destroys the
+    component instance and removes its rendered template from the DOM.
+    Directives have a similar lifecycle, as Angular creates, updates, and
+    destroys instances in the course of execution. <br /><br />
+
+    Your application can use lifecycle hook methods to tap into key events in
+    the lifecycle of a component or directive to initialize new instances,
+    initiate change detection when needed, respond to updates during change
+    detection, and clean up before deletion of instances.
+  </p>
+  <hr />
+
+  <h3 class="mt-5">Lifecycle Event Sequence</h3>
+
+  <p class="mt-5">
+    After your application instantiates a component or directive by calling its
+    constructor, Angular calls the hook methods you have implemented at the
+    appropriate point in the lifecycle of that instance. <br /><br />
+
+    Angular executes hook methods in the following sequence. Use them to perform
+    the following kinds of operations.
+  </p>
+
+  <div class="container-fluid mt-5 border">
+    <div class="row text-center my-3">
+      <div class="col-2">
+        <h5>Hook Methods</h5>
+      </div>
+      <div class="col-5">
+        <h5>Purpose</h5>
+      </div>
+      <div class="col-5">
+        <h5>Timing</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 p-3">
+        <h6>ngOnChanges()</h6>
+      </div>
+      <div class="col-5 p-3">
+        <p>
+          Respond when Angular sets or resets data-bound input properties. The
+          method receives a SimpleChanges object of current and previous
+          property values. <br /><br />
+
+          Note that this happens very frequently, so any operation you perform
+          here impacts performance significantly. See details in Using change
+          detection hooks in this document.
+        </p>
+      </div>
+      <div class="col-5 p-3">
+        <p>
+          Called before ngOnInit() (if the component has bound inputs) and
+          whenever one or more data-bound input properties change. <br /><br />
+
+          Note that if your component has no inputs or you use it without
+          providing any inputs, the framework will not call ngOnChanges().
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 p-3">
+        <h6>ngOnInit()</h6>
+      </div>
+      <div class="col-5 p-3">
+        <p>
+          Initialize the directive or component after Angular first displays the
+          data-bound properties and sets the directive or component's input
+          properties. See details in Initializing a component or directive in
+          this document
+        </p>
+      </div>
+      <div class="col-5 p-3">
+        <p>
+          Called once, after the first ngOnChanges(). ngOnInit() is still called
+          even when ngOnChanges() is not (which is the case when there are no
+          template-bound inputs).
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 p-3">
+        <h6>ngDoCheck()</h6>
+      </div>
+      <div class="col-5 p-3">
+        <p>
+          Detect and act upon changes that Angular can't or won't detect on its
+          own. See details and example in Defining custom change detection in
+          this document.
+        </p>
+      </div>
+      <div class="col-5 p-3">
+        <p>
+          Called immediately after ngOnChanges() on every change detection run,
+          and immediately after ngOnInit() on the first run.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 p-3">
+        <h6>ngAfterContentInit()</h6>
+      </div>
+      <div class="col-5 p-3">
+        <p>
+          Respond after Angular projects external content into the component's
+          view, or into the view that a directive is in.
+        </p>
+      </div>
+      <div class="col-5 p-3">
+        <p>Called once after the first ngDoCheck().</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 p-3">
+        <h6>ngAfterContentChecked()</h6>
+      </div>
+      <div class="col-5 p-3">
+        <p>
+          Respond after Angular checks the content projected into the directive
+          or component.
+        </p>
+      </div>
+      <div class="col-5 p-3">
+        <p>
+          Called after ngAfterContentInit() and every subsequent ngDoCheck().
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 p-3">
+        <h6>ngAfterViewInit()</h6>
+      </div>
+      <div class="col-5 p-3">
+        <p>
+          Respond after Angular initializes the component's views and child
+          views, or the view that contains the directive.
+        </p>
+      </div>
+      <div class="col-5 p-3">
+        <p>Called once after the first ngAfterContentChecked().</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 p-3">
+        <h6>ngAfterViewChecked()</h6>
+      </div>
+      <div class="col-5 p-3">
+        <p>
+          Respond after Angular checks the component's views and child views, or
+          the view that contains the directive.
+        </p>
+      </div>
+      <div class="col-5 p-3">
+        <p>
+          Called after the ngAfterViewInit() and every subsequent
+          ngAfterContentChecked().
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 p-3">
+        <h6>ngOnDestroy()</h6>
+      </div>
+      <div class="col-5 p-3">
+        <p>
+          Cleanup just before Angular destroys the directive or component.
+          Unsubscribe Observables and detach event handlers to avoid memory
+          leaks.
+        </p>
+      </div>
+      <div class="col-5 p-3">
+        <p>
+          Called immediately before Angular destroys the directive or component.
+        </p>
+      </div>
+    </div>
+  </div>
+  <br /><br /><br />
+</div>

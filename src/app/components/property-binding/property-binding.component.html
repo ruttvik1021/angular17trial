@@ -1,0 +1,115 @@
+<div class="mt-4 p-3">
+  <h3 class="mb-5">Property Binding</h3>
+  <p>
+    Property binding in Angular helps you set values for properties of HTML
+    elements or directives. Use property binding to do things such as toggle
+    button functionality, set paths programmatically, and share values between
+    components.
+  </p>
+  <br />
+  <h5>[disabled] = "isDisabled"</h5>
+  <br />
+  <p>
+    The Learning Mode Button seen in Introduction used this method to disable
+    and enable the other buttons.
+  </p>
+</div>
+<hr />
+
+<div class="p-3">
+  <h4 class="mb-5">String Interpolation</h4>
+  <p>
+    Property binding moves a value in one direction, from a component's property
+    into a target element property.
+  </p>
+  <br />
+  <img
+    src="https://dotnettutorials.net/wp-content/uploads/2018/09/word-image-171.png"
+    alt=""
+    height="250px"
+    width="500px"
+  /><br /><br />
+</div>
+<br />
+<hr />
+
+<div class="p-3">
+  <h4 class="mb-5">Event Binding</h4>
+  <p>
+    Event binding lets you listen for and respond to user actions such as
+    keystrokes, mouse movements, clicks, and touches. <br />To bind to an event
+    you use the Angular event binding syntax. This syntax consists of a target
+    event name within parentheses to the left of an equal sign, and a quoted
+    template statement to the right. In the following example, the target event
+    name is click and the template statement is onSave().
+  </p>
+  <br />
+  <img
+    src="https://angular.io/generated/images/guide/template-syntax/syntax-diagram.svg"
+    alt=""
+    height="100px"
+  /><br /><br />
+
+  <h3>Try It Yourself</h3>
+  <p>Get your cetificate by entering your name here.</p>
+  <input type="text" [(ngModel)]="firstName" placeholder="First Name" />
+  <input type="text" [(ngModel)]="lastName" placeholder="Last Name" />
+
+  <button (click)="enter()" class="btn btn-success m-3">Enter</button>
+  <button (click)="reset()" class="btn btn-outline-danger">Reset</button><br />
+
+  <p>
+    Your name will be inserted in below statement using String Interpolation &
+    Event Binding.
+  </p>
+  <br />
+
+  <p
+    [hidden]="isHidden"
+    style="background-color: goldenrod"
+    class="text-center"
+  >
+    <em>
+      This is to certify that <span> {{ firstName }} {{ lastName }} </span> has
+      completed Angular 17 Course.</em
+    >
+  </p>
+</div>
+<br />
+<hr />
+
+<div class="p-3">
+  <h4 class="mb-5">Two Way Binding</h4>
+  <p>
+    Two-way binding gives components in your application a way to share data.
+    Use two-way binding to listen for events and update values simultaneously
+    between parent and child components. <br />Angular's two-way binding syntax
+    is a combination of square brackets and parentheses, [()]. The [()] syntax
+    combines the brackets of property binding, [], with the parentheses of event
+    binding, (), as follows.
+  </p>
+  <br />
+  <img
+    src="https://matetiblog.files.wordpress.com/2020/07/4_6_ngmodel.png"
+    alt=""
+    height="200px"
+  /><br />
+
+  <h3>Try It Yourself</h3>
+  <input type="text" [(ngModel)]="fname" placeholder="First Name" />
+  <input type="text" [(ngModel)]="lname" placeholder="Last Name" /><br />
+  <p>
+    Your name will be inserted in below statement using String Interpolation &
+    Two Way Binding.
+  </p>
+  <br />
+
+  <p class="text-center">
+    <em>
+      This is to certify you that {{ fname }} {{ lname }} has completed Angular
+      Course.
+    </em>
+  </p>
+</div>
+<br />
+<hr />
